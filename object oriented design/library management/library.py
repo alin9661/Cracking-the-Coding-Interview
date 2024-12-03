@@ -9,10 +9,23 @@ class Library:
     def get_address(self) -> str:
         return self.address
 
-class Catalog:
-    pass
+class LibraryCard:
+    def __init__(self,
+                 card_number: str,
+                 barcode: str,
+                 issued_at: datetime,
+                 active: bool
+                 ) -> None:
+        self.card_number: str = card_number
+        self.barcode: str = barcode
+        self.issued_at: datetime = issued_at
+        self.active: bool = active
 
-class Fine:
+class BarcodeReader:
+    def __init__(self, ):
+        pass
+
+class Catalog:
     pass
 
 class Author:
@@ -50,8 +63,3 @@ class EmailNotification(Notification):
     def __init__(self, notification_id, created_on, content, email):
         super().__init__(notification_id, created_on, content)
         self.email: str = email
-
-
-class LibraryCard:
-    pass
-
