@@ -1,7 +1,11 @@
 import datetime
 
 class Fine:
-    pass
+    def __init__(self, amount: float) -> None:
+        self.amount = amount
+
+    def get_amount(self) -> float:
+        return self.amount
 
 class FineTransaction:
     def __init__(self,
