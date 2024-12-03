@@ -1,3 +1,7 @@
+import datetime
+from models import *
+from book import *
+
 ## Account Management
 class Account:
     def __init__(self,
@@ -30,3 +34,8 @@ class Librarian(Account):
 class Member(Account):
     def __init__(self, id, password, status, person, membership_date, books_checked_out) -> None:
         super().__init__(id, password, status, person)
+        self.membership_date: datetime = membership_date
+        self.total_books_checked: int = books_checked_out
+
+    def get_total_checked_out_books(self) -> int:
+        return self.total_books_checked

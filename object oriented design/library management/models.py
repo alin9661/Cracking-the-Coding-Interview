@@ -1,42 +1,39 @@
-from abc import ABC
 from enum import Enum
 
-
 class BookFormat(Enum):
-    HARDCOVER, PAPERBACK, AUDIO_BOOK, EBOOK, NEWSPAPER, MAGAZINE, JOURNAL = 1, 2, 3, 4, 5, 6, 7
+    pass
 
-
-class BookStatus(Enum):
-    AVAILABLE, RESERVED, LOANED, LOST = 1, 2, 3, 4
-
+class BookStatu(Enum):
+    pass
 
 class ReservationStatus(Enum):
-    WAITING, PENDING, CANCELED, NONE = 1, 2, 3, 4
-
+    pass
 
 class AccountStatus(Enum):
-    ACTIVE, CLOSED, CANCELED, BLACKLISTED, NONE = 1, 2, 3, 4, 5
-
+    pass
 
 class Address:
-    def __init__(self, street, city, state, zip_code, country):
-        self.__street_address = street
-        self.__city = city
-        self.__state = state
-        self.__zip_code = zip_code
-        self.__country = country
+    def __init__(self,
+                 street_address: str,
+                 city: str,
+                 state: str,
+                 zipcode: str,
+                 country: str
+                 ) -> None:
+        self.street_address: str = street_address
+        self.city: str = city
+        self.state: str = state
+        self.zipcode: str = zipcode
+        self.country: str = country
 
-
-class Person(ABC):
-    def __init__(self, name, address, email, phone):
-        self.__name = name
-        self.__address = address
-        self.__email = email
-        self.__phone = phone
-
-
-class Constants:
-    def __init__(self):
-          self.MAX_BOOKS_ISSUED_TO_A_USER = 5
-          self.MAX_LENDING_DAYS = 10
-
+class Person:
+    def __init__(self,
+                 name: str,
+                 address: Address,
+                 email: str,
+                 phone: str,
+                 ) -> None:
+        self.name: str = name
+        self.address: Address = address
+        self.email: str = email
+        self.phone: str = phone

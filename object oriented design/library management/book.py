@@ -43,7 +43,22 @@ class Rack:
     pass
 
 class BookReservation:
-    pass
+    def __init__(self, 
+                 creation_date: datetime,
+                 status: ReservationStatus
+                 ) -> None:
+        self.creation_date: datetime = creation_date
+        self.status: ReservationStatus = status
 
 class BookLending:
-    pass
+    def __init__(self,
+                 creation_date: datetime,
+                 due_date: datetime,
+                 return_date: datetime
+                 ) -> None:
+        self.creation_date: datetime = creation_date
+        self.due_date: datetime = due_date
+        self.return_date: datetime = return_date
+
+    def get_return_date(self) -> datetime:
+        return self.return_date

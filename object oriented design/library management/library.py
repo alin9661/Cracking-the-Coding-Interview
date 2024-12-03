@@ -9,9 +9,6 @@ class Library:
     def get_address(self) -> str:
         return self.address
 
-
-
-
 class Catalog:
     pass
 
@@ -32,13 +29,27 @@ class Author:
 
 ## Notifications
 class Notification:
-    pass
+    def __init__(self, 
+                 notification_id: int,
+                 created_on: datetime,
+                 content: str,
+                 ) -> None:
+        self.notification_id: int = notification_id
+        self.created_on: datetime = created_on
+        self.content: str = content
+
+    def send_notification(self) -> bool:
+        pass
 
 class PostalNotification(Notification):
-    pass
+    def __init__(self, notification_id, created_on, content, address):
+        super().__init__(notification_id, created_on, content)
+        self.address: str = address
 
 class EmailNotification(Notification):
-    pass
+    def __init__(self, notification_id, created_on, content, email):
+        super().__init__(notification_id, created_on, content)
+        self.email: str = email
 
 
 class LibraryCard:
