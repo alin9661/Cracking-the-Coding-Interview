@@ -1,5 +1,6 @@
 import datetime
 from models import *
+from typing import Dict
 
 class Library:
     def __init__(self, name, address) -> None:
@@ -22,11 +23,36 @@ class LibraryCard:
         self.active: bool = active
 
 class BarcodeReader:
-    def __init__(self, ):
-        pass
+    def __init__(self,
+                 id: str,
+                 registed_at: datetime,
+                 active: bool
+                 ) -> None:
+        self.id: str = id
+        self.registered_at: datetime = registed_at
+        self.active: bool = active
 
-class Catalog:
-    pass
+    def is_active(self) -> bool:
+        return self.active
+
+class Catalog(Search):
+    def __init__(self,
+                 creation_date: datetime,
+                 total_books: int,
+                 book_titles: Dict[str, list],
+                 book_authors: Dict[str, list],
+                 book_subjects: Dict[str, list],
+                 book_publication_dates: Dict[datetime, list],
+                 ) -> None:
+        self.creation_date: datetime = creation_date
+        self.total_books: int = total_books
+        self.book_titles: Dict[str, list] = book_titles
+        self.book_authors: Dict[str, list] = book_authors
+        self.book_subjects: Dict[str, list] = book_subjects
+        self.book_publication_dates: Dict[datetime, list] = book_publication_dates
+
+    def update_catalog(self) -> bool:
+        pass
 
 class Author:
     def __init__(self,

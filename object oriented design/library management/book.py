@@ -39,9 +39,6 @@ class BookItem(Book):
     def checkout(self) -> bool:
         pass
 
-class Rack:
-    pass
-
 class BookReservation:
     def __init__(self, 
                  creation_date: datetime,
@@ -62,3 +59,9 @@ class BookLending:
 
     def get_return_date(self) -> datetime:
         return self.return_date
+    
+
+class Rack:
+    def __init__(self, number: int, location_identifier: str) -> None:
+        self.number: int = number
+        self.location_identifier: str = location_identifier

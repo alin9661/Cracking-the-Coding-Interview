@@ -1,4 +1,5 @@
 from enum import Enum
+from abc import ABC, abstractmethod
 
 class BookFormat(Enum):
     HARDCOVER = 1
@@ -54,3 +55,20 @@ class Person:
         self.address: Address = address
         self.email: str = email
         self.phone: str = phone
+
+class Search(ABC):
+    @abstractmethod
+    def search_by_title(self, title: str):
+        pass
+    
+    @abstractmethod
+    def search_by_author(self, author: str):
+        pass
+
+    @abstractmethod
+    def search_by_subject(self, subject: str):
+        pass
+
+    @abstractmethod
+    def search_by_pub_date(self, date):
+        pass
