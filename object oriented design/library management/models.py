@@ -10,7 +10,7 @@ class BookFormat(Enum):
     MAGAZINE = 6
     JOURNAL = 7
 
-class BookStatu(Enum):
+class BookStatus(Enum):
     AVAILABLE = 1
     RESERVED = 2
     LOANED = 3
@@ -60,7 +60,7 @@ class Search(ABC):
     @abstractmethod
     def search_by_title(self, title: str):
         pass
-    
+
     @abstractmethod
     def search_by_author(self, author: str):
         pass
