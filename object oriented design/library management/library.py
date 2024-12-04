@@ -54,6 +54,12 @@ class Catalog(Search):
     def update_catalog(self) -> bool:
         pass
 
+    def search_by_title(self, query):
+        return self.__book_titles.get(query)
+
+    def search_by_author(self, query):
+        return self.__book_authors.get(query)
+
 class Author:
     def __init__(self,
                  name: str,

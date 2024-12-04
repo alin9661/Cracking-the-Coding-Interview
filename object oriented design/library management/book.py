@@ -37,7 +37,13 @@ class BookItem(Book):
         self.publication_date: datetime = publication_date
 
     def checkout(self) -> bool:
-        pass
+        if self.get_is_reference_only():
+            print("self book is Reference only and can't be issued")
+            return False
+        if not BookLending.lend_book(self.get_bar_code(), member_id):
+            return False
+        self.update_book_item_status(BookStatus.LOANED)
+        return True
 
 class BookReservation:
     def __init__(self, 
